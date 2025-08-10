@@ -8,3 +8,8 @@
                   uses: actions/checkout@v3
                 - name: Install Xcode
                   run: "softwareupdate --download xcode"
+                - name: Build the app
+                  run: "xcodebuild -scheme iOS\ GitHub -configuration Release -archivePath ./build/app.xcarchive archive"
+                - name: Export the app
+                  run: "xcodebuild -exportArchive -archivePath ./build/app.xcarchive -exportPath ./build -exportOptionsPlist ExportOptions.plist"                   
+ 
